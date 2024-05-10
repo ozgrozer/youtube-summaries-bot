@@ -58,8 +58,9 @@ const main = async () => {
         }]
       })
 
-      const toolCalls = chatCompletion.choices[0]?.message.tool_calls
       let lastMessage = chatCompletion.choices[0]?.message?.content || ''
+
+      const toolCalls = chatCompletion.choices[0]?.message.tool_calls
       if (toolCalls) {
         for (const toolCall of toolCalls) {
           await bot.sendMessage(chatId, 'I am now summarizing the video content.')
