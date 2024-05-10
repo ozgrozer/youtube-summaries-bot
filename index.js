@@ -61,8 +61,8 @@ const main = async () => {
       let lastMessage = chatCompletion.choices[0]?.message?.content || ''
       if (toolCalls) {
         for (const toolCall of toolCalls) {
+          await bot.sendMessage(chatId, 'I am now summarizing the video content.')
           await bot.sendChatAction(chatId, 'typing')
-          await bot.sendMessage(chatId, 'I am now summarizing the video content. Please wait a moment.')
 
           let output = ''
           const functionName = toolCall.function.name
