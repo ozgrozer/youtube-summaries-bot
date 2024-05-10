@@ -20,10 +20,6 @@ const main = async () => {
   try {
     console.log('Listening messages')
 
-    const messages = [
-      { role: 'system', content: 'You are a bot designed to summarize YouTube videos. When provided with a YouTube link, you will retrieve the transcript using the "getYoutubeTranscript" function and then summarize it. This function should only be run when you receive a YouTube link. If a YouTube link is not provided, kindly remind the user to provide one.' }
-    ]
-
     bot.on('message', async msg => {
       const chatId = msg.chat.id
       const userMessage = msg?.text?.toString()
@@ -35,7 +31,11 @@ const main = async () => {
         return
       }
 
-      messages.push({ role: 'user', content: userMessage })
+      const messages = [
+        { role: 'system', content: 'You are a bot designed to summarize YouTube videos. When provided with a YouTube link, you will retrieve the transcript using the "getYoutubeTranscript" function and then summarize it. This function should only be run when you receive a YouTube link. If a YouTube link is not provided, kindly remind the user to provide one.' },
+        { role: 'user', content: userMessage }
+      ]
+
       const chatCompletion = await groq.chat.completions.create({
         model,
         messages,
