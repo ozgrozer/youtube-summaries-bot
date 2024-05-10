@@ -3,7 +3,7 @@ const Groq = require('groq-sdk')
 const TelegramBot = require('node-telegram-bot-api')
 const { YoutubeTranscript } = require('youtube-transcript')
 
-const model = 'llama3-70b-8192'
+const model = process.env.GROQ_MODEL
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
 const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, { polling: true })
 
