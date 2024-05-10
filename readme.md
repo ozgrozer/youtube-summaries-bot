@@ -27,6 +27,8 @@ Run the script
 
 ```
 yarn start
+# or
+npm run start
 ```
 
 And here's the expected result on Telegram
