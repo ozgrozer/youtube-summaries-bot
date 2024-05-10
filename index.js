@@ -27,6 +27,7 @@ const main = async () => {
     bot.on('message', async msg => {
       const chatId = msg.chat.id
       const userMessage = msg?.text?.toString()
+      console.log(userMessage)
 
       if (userMessage === '/start') {
         await bot.sendMessage(chatId, `Hey, ${msg.from.first_name}.`)
@@ -93,4 +94,13 @@ const main = async () => {
   }
 }
 
-main()
+const platform = 'render'
+if (platform === 'render') {
+  const express = require('express')
+  const app = express()
+  const port = process.env.PORT || 3000
+  app.get('/', (req, res) => res.send('Hello World!'))
+  app.listen(port, () => main())
+} else {
+  main()
+}
