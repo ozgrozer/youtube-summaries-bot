@@ -9,6 +9,9 @@
     "email": "ozgr@live.com",
     "url": "https://github.com/ozgrozer"
   },
+  "scripts": {
+    "start": "node index.js"
+  },
   "engines": {
     "npm": "^8.x",
     "yarn": "^1.x",
