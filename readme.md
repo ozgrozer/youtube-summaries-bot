@@ -2,6 +2,12 @@
 
 A Telegram bot powered by the Llama3 model over Groq that provides summaries of YouTube videos
 
+## Preview
+
+<img src="./preview/preview.jpg" alt="" width="600" />
+
+## Usage
+
 Clone this repository
 
 ```
